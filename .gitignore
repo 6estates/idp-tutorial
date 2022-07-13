@@ -1,0 +1,9 @@
+.idea/
+out/
+target/
+docs/
+release.properties
+.classpath
+.project
+.settings/
+settings.json
