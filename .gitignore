@@ -1,6 +1,8 @@
 .idea/
 out/
 target/
+BackEnd/idp-sdk-demo/.idea/
+BackEnd/idp-sdk-demo/target/
 docs/
 release.properties
 .classpath
