@@ -1,6 +1,6 @@
 package com.sixestates;
 
-import com.sixestates.Dao.Storeage;
+import com.sixestates.dao.Storeage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
