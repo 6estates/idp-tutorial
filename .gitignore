@@ -1,4 +1,5 @@
 .idea/
+.history/
 out/
 target/
 backend/.idea/
