@@ -8,7 +8,8 @@
 
       <div class="main">
         <div class="left">
-          <iframe :src="pdfUrl" />
+          <iframe v-if="fileExtension === 'pdf'" :src="pdfUrl" />
+          <PreviewPhoto v-else :src="pdfUrl" alt="" />
         </div>
 
         <div class="right">
@@ -71,7 +72,7 @@
 
     <!-- form -->
     <div class="form-wrap" v-else>
-      <div class="form-title">Processing Your Documents Intelligently</div>
+      <div class="form-title">{{title}}</div>
       <div class="form-box">
         <el-form
           class="form-list"
@@ -178,19 +179,30 @@
         <div class="btn-op" @click="handleSubmit">Submit</div>
       </div>
     </div>
+    <div class="footer">
+      <span>© 2022 </span>
+      <a target="_blank" href="https://www.6estates.com">6Estates</a>
+      <span> All Rights Reserved</span>
+    </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import PreviewPhoto from './components/previewPhoto'
 
 export default {
   name: 'App',
+  components: {
+    PreviewPhoto
+  },
   data() {
     return {
       hasResponse: false,
       loading: null,
       pdfUrl: '',
+      title: 'Processing Your Documents Intelligently',
+      fileExtension: '',
       formData: {
         token: '',
         mode: '',
@@ -321,9 +333,14 @@ export default {
       return this.resultFields.filter(item => item.type !== 'table')
     }
   },
+  created() {
+    const name = this.getQueryVariable('name')
+    if (name) this.title = name
+  },
   methods: {
     handleFileChange(file) {
       this.$set(this.formData, 'file', file.raw)
+      this.fileExtension = file.name.split('.').pop().toLowerCase()
     },
     handleDeleteFile() {
       this.formData.file = null
@@ -340,23 +357,34 @@ export default {
       }
 
       try {
-        this.loading = this.$loading()
+        this.loading = this.$loading({
+          text: 'Please be patient...'
+        })
         const { data } = await axios.post('/api/taskSubmit', form)
+        const message = data.message
 
-        if (this.formData.mode === '1') {
-          this.getTaskResult({
-            taskId: data.data,
-            token: this.formData.token
-          })
+        if (data.status === 200) {
+          if (this.formData.mode === '1') {
+            this.getTaskResult({
+              taskId: data.data,
+              token: this.formData.token
+            })
+          } else {
+            this.loading.close()
+            this.$message.success({
+              duration: 10000,
+              message: 'Your file has been submitted successfully, please check the result later in your callback service!'
+            })
+          }
         } else {
-          this.loading.close()
-          this.$message.success({
+          this.$message.error({
             duration: 10000,
-            message: 'Your file has been submitted successfully, please check the result later in your callback service!'
+            message
           })
+          this.loading.close()
         }
       } catch(e) {
-        this.$message.error('Error')
+        this.$message.error('Network Error')
         this.loading.close()
       }
     },
@@ -394,9 +422,18 @@ export default {
       this.hasResponse = false
     },
     readBlobAsDataURL(blob, callback) {
-      var a = new FileReader();
-      a.onload = function(e) {callback(e.target.result);};
-      a.readAsDataURL(blob);
+      const a = new FileReader()
+      a.onload = function(e) {callback(e.target.result)}
+      a.readAsDataURL(blob)
+    },
+    getQueryVariable(variable) {
+      const query = window.location.search.substring(1)
+      const vars = query.split("&")
+      for (let i = 0; i < vars.length; i++) {
+        const pair = vars[i].split('=')
+        if(pair[0] == variable){return pair[1]}
+      }
+      return(false);
     }
   }
 }
@@ -413,10 +450,11 @@ body {
   color: #2c3e50;
 }
 .form-wrap {
+  padding-bottom: 20px;
   padding-top: 1vh;
   background: url('~@/assets/bg.png') no-repeat center center;
   background-size: cover;
-  height: 99vh;
+  min-height: calc(99vh - 50px);
 }
 .form-box {
   margin: 0 auto;
@@ -428,7 +466,7 @@ body {
 }
 .form-title {
   margin-top: 60px;
-  font-size: 36px;
+  font-size: 34px;
   text-align: center;
   color: #2eb5b1;
   font-weight: bold;
@@ -465,9 +503,9 @@ body {
   font-size: 18px;
 }
 .upload-btn {
-  margin-top: 2vh;
+  margin-top: 10px;
   img {
-    height: 10vh;
+    height: 60px;
     cursor: pointer;
   }
 }
@@ -525,18 +563,23 @@ body {
 .main {
   display: flex;
   justify-content: space-between;
+  height: calc(100vh - 72px);
 }
 .left {
   width: 40%;
-  height: 90vh;
+  height: 100%;
+  overflow-y: auto;
   iframe {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+  }
+  img {
     width: 100%;
-    height: 100%;
   }
 }
 .right {
   width: 59%;
-  height: 90vh;
+  height: 100%;
   overflow-y: auto;
 }
 .table-wrap {
@@ -647,5 +690,16 @@ body {
   top: 5px;
   font-weight: bold;
   cursor: pointer;
+}
+.footer {
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: #6b6d71;
+  a {
+    color: #2eb5b1;
+  }
 }
 </style>
