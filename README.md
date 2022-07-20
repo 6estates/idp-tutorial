@@ -1,23 +1,23 @@
 # idp-tutorial
 Here we provide a web project for you to show how to integrate our Idp SDK into your end-to-end web production application environment.
-### 1 Backend
+## 1 Backend
 The Backend uses Springboot 2.7.0 as web service application.
-#### 1.1  Prerequisites
+### 1.1  Prerequisites
 * OracleJDK 11. [Oracle Java SE Development Kit](https://www.oracle.com/java/technologies/downloads/)
 * Apache Maven. [Maven 3.8.4](http://archive.apache.org/dist/maven/maven-3/3.8.4/)
 
-#### 1.2   Compile
+### 1.2   Compile
 ``` shell
 mvn clean package spring-boot:repackage
 ```
 
-#### 1.3   Start the backend
+### 1.3   Start the backend
 ``` shell
 java -jar target/backend-1.0-SNAPSHOT.jar 
 ```
-### 2 Frontend
+## 2 Frontend
 The Frontend is a node.js project.
-#### 2.1  Installation
+### 2.1  Installation
 You can use the following shell commands to install the lastest node.js.
 ``` shell
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
@@ -25,11 +25,11 @@ curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 ```
-#### 2.2  Set up the project 
+### 2.2  Set up the project 
 ``` shell
 npm install
 ```
-#### 2.3 Compiles and hot-reloads for development
+### 2.3 Compiles and hot-reloads for development
 ``` shell
 npm run serve
 ```
@@ -46,10 +46,15 @@ DONE  Compiled successfully
  To create a production build, run $npm run build.
 
 ```
-#### 2.4 Compiles and minifies for production
+### 2.4 Compiles and minifies for production
 ``` shell
 npm run build
 ```
-### 3 Dashboard screenshot
+## 3 Dashboard screenshot
 After you deploy both the frontend and the backend application successfully, you can open a browser, enter the Url: http://localhost:8080/ , then you will see the following dashboard!
 ![screenshot](./imgs/screenshot.png)
+
+## 4 Getting Help
+If you need help installing or using the web service, please feel free to contact us.
+
+If you've instead found a bug in the project or would like new features added, go ahead and open issues or pull requests against this repo!
