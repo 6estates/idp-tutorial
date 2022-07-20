@@ -13,7 +13,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'PreviewPhoto',
   props: {
@@ -59,7 +58,7 @@ export default {
     handleMove(e) {
       const baseStyle = this.$refs.attachment.style
       const preTransform = baseStyle.transform
-      const moveArr = preTransform.match(/translate\((-?\d+)px, (-?\d+)px\)/)
+      const moveArr = preTransform.match(/translate\((-?\d+(\.\d+)?)px, (-?\d+(\.\d+)?)px\)/)
 
       // Calculate the position of the mouse relative element
       const disX = e.clientX
@@ -69,7 +68,7 @@ export default {
       let preY = 0
       if (moveArr) {
         preX = Number(moveArr[1])
-        preY = Number(moveArr[2])
+        preY = Number(moveArr[3])
       }
       // Events pressed and moved by the mouse
       document.onmousemove = (e) => {
@@ -77,6 +76,7 @@ export default {
         const left = (e.clientX - disX) / this.options.scale
         const top = (e.clientY - disY) / this.options.scale
         let baseTransform = preTransform.replace(/translate\(-?\d+(\.\d+)?px, -?\d+(\.\d+)?px\)/g, '')
+        
         if (this.options.rotate !== 0) {
           baseTransform = baseTransform.replace(/rotate\(-?\d+deg\)/g, '')
           baseStyle.transform = baseTransform + `translate(${left + preX}px,${top + preY}px)` + `rotate(${this.options.rotate}deg)`
