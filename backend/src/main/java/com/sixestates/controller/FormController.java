@@ -32,9 +32,6 @@ public class FormController {
 
         Idp.init(token);
 
-        Idp.setSubmitUrl("https://idp.6estates.com/customer/extraction/fields/async");
-        Idp.setExtractUrl("https://idp.6estates.com/customer/extraction/field/async/result/");
-
         TaskDTO taskDto = null;
         TaskInfo taskInfo = null;
         if(mode == 1) {
@@ -54,7 +51,16 @@ public class FormController {
                     .fileType(FileType)
                     .build();
         }
-        taskDto = ExtractSubmitter.submit(taskInfo);
+        try {
+            taskDto = ExtractSubmitter.submit(taskInfo);
+        }catch (ApiException e) {
+            taskDto = new TaskDTO();
+            taskDto.setData("-1");
+            taskDto.setErrorCode(3);
+            taskDto.setMessage(e.getMessage());
+            taskDto.setStatus(100);
+            return ResponseEntity.ok(taskDto);
+        }
         logger.info("taskId" + taskDto.getData());
         Storeage.taskMap.put(taskDto.getData(), mode);
         return ResponseEntity.ok(taskDto);
@@ -76,8 +82,7 @@ public class FormController {
         }else {
             // loop
             Idp.init(token);
-            Idp.setSubmitUrl("https://idp.6estates.com/customer/extraction/fields/async");
-            Idp.setExtractUrl("https://idp.6estates.com/customer/extraction/field/async/result/");
+
             boolean taskDone = false;
             ResultDTO resultDto = null;
             try{
