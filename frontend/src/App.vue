@@ -335,7 +335,7 @@ export default {
   },
   created() {
     const name = this.getQueryVariable('name')
-    if (name) this.title = name
+    if (name) this.title = decodeURIComponent(name)
   },
   methods: {
     handleFileChange(file) {
