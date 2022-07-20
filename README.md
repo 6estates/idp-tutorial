@@ -1,5 +1,5 @@
 # idp-tutorial
-Here we provide a web project for you to show how to integrate our Idp SDK into your end-to-end web production aplication environment.
+Here we provide a web project for you to show how to integrate our Idp SDK into your end-to-end web production application environment.
 ### 1 Backend
 The Backend uses Springboot 2.7.0 as web service application.
 #### 1.1  Prerequisites
