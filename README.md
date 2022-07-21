@@ -1,4 +1,4 @@
-#  A Tutorial on Integrating 6Estates IDP Platform into a Web Application
+#  A Demo Web Application to integrate 6Estates IDP Service into a Web Application
 
 Here we provide a web project for your reference on how to use IDP SDK to intergrate 6Estates' IDP service into your web application.
 
