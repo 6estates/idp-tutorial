@@ -22,7 +22,7 @@ Open a terminal and use the following command to check if the web service starte
 ``` shell
 curl -X GET http://127.0.0.1:8080/actuator/health
 ```
-If you receive the response json，it means that the backend service has been successfully built.
+If you receive the json response，it means that the backend service has been successfully built.
 ``` json
 {
   "status": "UP",
