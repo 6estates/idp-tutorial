@@ -8,19 +8,19 @@ Here we provide a web project for your reference on how to use IDP SDK to interg
 
 The backend service is a Web Service developed using Spring Boot. 
 
-Please refer to the [README](./backend/README.md) in the folder of `backend` to start the Web service. 
+Please refer to the [README](./backend/README.md) in the `backend` folder to start the Web service. 
 
 ## 2 To Start the Dashboard
 
-The Dashboard is a developed using Nodejs.
+The Dashboard is developed using Nodejs.
 
-Please refer to the [README](./frontend/README.md) in the folder of `frontend` to start the Dashboard. 
+Please refer to the [README](./frontend/README.md) in the `frontend` folder to start the Dashboard. 
 
 ## 3 How to use 
 
-After you successfully start both services, you can open a web browser, enter the URL: http://localhost:8080/. 
+After you successfully start both services, you can open a web browser and enter the URL: http://localhost:8080/. 
 
-Now you shall see the dashboard like the above image and have a trial by simply uploading a file.  
+Now you shall see that the dashboard looks like the image above and you can start a trial by simply uploading a file.  
 
 ## 4 Any Issues & Feedbacks?
 
