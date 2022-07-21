@@ -265,6 +265,26 @@ export default {
         {
           label: 'Delivery Order',
           value: 'DO'
+        },
+        {
+          label: 'Singapore NRIC',
+          value: 'NRIC'
+        },
+        {
+          label: 'China ID Card',
+          value: 'ZHID'
+        },
+        {
+          label: 'China Passport',
+          value: 'PP'
+        },
+        {
+          label: 'ACRA Bizfile',
+          value: 'BFP'
+        },
+        {
+          label: 'Nomor Pokok Wajib Pajak',
+          value: 'NPWP'
         }
       ],
       rules: {
