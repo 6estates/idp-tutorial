@@ -1,10 +1,11 @@
 #  A Tutorial on Integrating 6Estates IDP Platform into a Web Application
 
 Here we provide a web project for you to show how to integrate our Idp SDK into your end-to-end web production application environment.
+![screenshot](./imgs/screenshot.png)
 
 ## 1 Backend: Spring Web Application
 
-The Backend uses Spring Boot 2.7.0 as web service application.
+The Backend uses Spring Boot 2.7.0 as web service application. Go to the folder of `backend`.
 
 ### 1.1  Prerequisites
 * OracleJDK 11. [Oracle Java SE Development Kit](https://www.oracle.com/java/technologies/downloads/)
@@ -20,7 +21,9 @@ mvn clean package spring-boot:repackage
 java -jar target/backend-1.0-SNAPSHOT.jar 
 ```
 ## 2 Frontend: Dashboard 
-The Frontend is a node.js project.
+
+The Frontend is a node.js project. Go to the folder of `frontend`.
+
 ### 2.1  Installation
 You can use the following shell commands to install the lastest node.js.
 ``` shell
@@ -55,9 +58,11 @@ DONE  Compiled successfully
 npm run build
 
 ```
-## 3 Dashboard screenshot
-After you deploy both the frontend and the backend application successfully, you can open a browser, enter the Url: http://localhost:8080/ , then you will see the following dashboard!
-![screenshot](./imgs/screenshot.png)
+## 3 Dashboard 
+
+After you deploy both the frontend and the backend application successfully, you can open a browser, enter the Url: http://localhost:8080/ , then you will see the above dashboard! 
+
+You may upload a file to 
 
 ## 4 Any Issues & Feedbacks 
 
