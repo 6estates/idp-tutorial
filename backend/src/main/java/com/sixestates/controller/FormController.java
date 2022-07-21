@@ -3,6 +3,7 @@ package com.sixestates.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.sixestates.Idp;
 import com.sixestates.dao.Storeage;
+import com.sixestates.exception.ApiConnectionException;
 import com.sixestates.exception.ApiException;
 import com.sixestates.rest.v1.ExtractSubmitter;
 import com.sixestates.rest.v1.ResultExtractor;
@@ -53,7 +54,7 @@ public class FormController {
         }
         try {
             taskDto = ExtractSubmitter.submit(taskInfo);
-        }catch (ApiException e) {
+        }catch (ApiException | ApiConnectionException e) {
             taskDto = new TaskDTO();
             taskDto.setData("-1");
             taskDto.setErrorCode(3);
