@@ -38,5 +38,5 @@ npm run build
 ```
 
 ### Test
-
-TODO 
+Open a browser, enter the Url: http://localhost:8080/ , then you will see the following dashboard if you build this project successfully!
+![screenshot](../imgs/screenshot.png)
