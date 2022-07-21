@@ -1,4 +1,4 @@
-# Frontend project for idp tutorial
+# Frontend: A Dashboard for Demostration 
 
 ## Project setup
 ```
