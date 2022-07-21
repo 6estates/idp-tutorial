@@ -4,19 +4,23 @@ Here we provide a web project for your reference on how to use IDP SDK to interg
 
 ![screenshot](./imgs/screenshot.png)
 
-## 1 To Start the Backend Service - a Web Service developed using Spring Boot 
+## 1 To Start the Backend Service 
+
+The backend service is a Web Service developed using Spring Boot. 
 
 Please refer to the [README](./backend/README.md) in the folder of `backend` to start the Web service. 
 
-## 2 To Start the Frontend Service - a Dashboard developed using Nodejs
+## 2 To Start the Dashboard
+
+The Dashboard is a developed using Nodejs.
 
 Please refer to the [README](./frontend/README.md) in the folder of `frontend` to start the Dashboard. 
 
 ## 3 Dashboard 
 
-After you deploy both the frontend and the backend application successfully, you can open a browser, enter the Url: http://localhost:8080/ , then you will see the dashboard like the above image! 
+After you successfully start both services, you can open a web browser, enter the URL: http://localhost:8080/. 
 
-You may have a trial of the IDP platform by simply uploading a file.  
+Now you shall see the dashboard like the above image and have a trial by simply uploading a file.  
 
 ## 4 Any Issues & Feedbacks?
 
