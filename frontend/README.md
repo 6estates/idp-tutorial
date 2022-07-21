@@ -1,7 +1,7 @@
 # Frontend: A Dashboard for Demostration 
 
 
-The Frontend is a node.js project. Go to the folder of `frontend`.
+The Frontend is a node.js project. Go to the `frontend` folder.
 
 ###  Installation
 You can use the following shell commands to install the lastest node.js.
@@ -38,5 +38,5 @@ npm run build
 ```
 
 ### Test
-Open a browser, enter the Url: http://localhost:8080/ , then you will see the following dashboard if you build this project successfully!
+Open a browser and enter the Url: http://localhost:8080/ , you will see the following dashboard if you have built this project successfully!
 ![screenshot](../imgs/screenshot.png)
