@@ -1,7 +1,7 @@
-6Estates Intelligent Document Platform（IDP）Tutorial
+6Estates Intelligent Document Platform（IDP) Tutorial
 ===========
 
-__You can follow our [Online Tutorial](https://github.com/6estates/idp-tutorial/wiki/A-Tutorial-on-Integrating-6Estates-IDP-Service) or the [Youtube Video](https://www.youtube.com/watch?v=Ov1LX4sGQPw) to integrate our 6Estates IDP service into your applications.__
+__You can follow our [Online Tutorial](https://github.com/6estates/idp-tutorial/wiki/A-Tutorial-on-Integrating-6Estates-IDP-Service) or the [Youtube Video](https://www.youtube.com/watch?v=Ov1LX4sGQPw) to integrate 6Estates IDP service into your applications.__
 
 
 You can also try our IDP platform by directly using the following demo application.
