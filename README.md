@@ -1,6 +1,7 @@
 #  A Tutorial on Integrating 6Estates IDP Platform into a Web Application
 
-Here we provide a web project for you to show how to integrate our Idp SDK into your end-to-end web production application environment.
+Here we provide a web project for your reference on how to use IDP SDK to intergrate 6Estates' IDP service into your web application.
+
 ![screenshot](./imgs/screenshot.png)
 
 ## 1 Backend: Spring Web Application
@@ -62,7 +63,7 @@ npm run build
 
 After you deploy both the frontend and the backend application successfully, you can open a browser, enter the Url: http://localhost:8080/ , then you will see the above dashboard! 
 
-You may upload a file to 
+You may have a trial of the IDP platform by simply uploading a file.  
 
 ## 4 Any Issues & Feedbacks 
 
