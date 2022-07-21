@@ -16,7 +16,7 @@ The Dashboard is a developed using Nodejs.
 
 Please refer to the [README](./frontend/README.md) in the folder of `frontend` to start the Dashboard. 
 
-## 3 Dashboard 
+## 3 How to use 
 
 After you successfully start both services, you can open a web browser, enter the URL: http://localhost:8080/. 
 
