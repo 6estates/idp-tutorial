@@ -17,22 +17,18 @@ java -jar target/backend-1.0-SNAPSHOT.jar
 ```
 
 ### Test
+The project integrates a standard spring boot health monitoring system<br>
 Open a terminal and use the following command to check if the web service started successfully.
 ``` shell
-curl -X POST "localhost:8080/taskSubmit"  \
--H "accept: */*" \
--H "Content-Type: multipart/form-data" \
--F "file=@/home/Documents/7364028.png" \
--F "mode=1" \
--F "token=xxxxx" \
--F "fileType=CBKS" 
+curl -X GET http://127.0.0.1:8080/actuator/health
 ```
 If you receive the response json，it means that the backend service has been successfully built.
 ``` json
 {
-  "data": 12345,
-  "errorCode": 0,
-  "message": "",
-  "status": 200
+  "status": "UP",
+  "groups": [
+    "liveness",
+    "readiness"
+  ]
 }
 ```
