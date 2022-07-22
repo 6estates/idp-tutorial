@@ -112,7 +112,7 @@
               placeholder="File Type"
             >
               <el-option
-                v-for="item in fileTypeList"
+                v-for="item in sortFileTypes"
                 :key="item.value"
                 :value="item.value"
                 :label="item.label"
@@ -351,6 +351,12 @@ export default {
     },
     normalFields() {
       return this.resultFields.filter(item => item.type !== 'table')
+    },
+    sortFileTypes() {
+      const list = [...this.fileTypeList]
+      return list.sort((a, b) => {
+        return a.label.localeCompare(b.label)
+      })
     }
   },
   created() {
