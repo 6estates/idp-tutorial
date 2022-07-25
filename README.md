@@ -30,7 +30,21 @@ After you successfully start both services, you can open a web browser and enter
 
 Now you shall see that the dashboard looks like the image above and you can start a trial by simply uploading a file.  
 
-### 4 Any Issues & Feedbacks?
+### 4 Build & Deployment by Docker
+#### 4.1 Deployment from Dockerhub image
+```
+$ cd deploy
+$ docker-compose up -d
+```
+#### 4.2 Build image locally with source code 
+```
+$ cd build
+$ docker-compose build --no-cache
+$ docker-compose up -d
+```
+After the containers started successfully, you can open a web browser and enter the URL: http://localhost.
+
+### 5 Any Issues & Feedbacks?
 
 If you find a bug or would like to add new features in the tutorial project, it would be appreciated that you open issues or pull requests against this repo!
 
