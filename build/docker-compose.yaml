@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  frontend:
+    build:
+      context: ../
+      dockerfile: build/Dockerfile_frontend
+    image: idp-tutorial-frontend
+    ports:
+     - '80:80'
+    restart: always
+    container_name: idp-tutorial-frontend
+    environment:
+    - API_URL=idp-tutorial-backend:8080
+
+  backend:
+    build:
+      context: ../
+      dockerfile: build/Dockerfile_backend
+    image: idp-tutorial-backend
+    restart: always
+    container_name: idp-tutorial-backend
+    logging:
+      driver: json-file
+      options:
+        max-size: "1g"
+        max-file: "5"

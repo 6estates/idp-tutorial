@@ -1,0 +1,13 @@
+FROM node:16.14.0  AS builder
+
+WORKDIR /app/frontend
+ADD frontend .
+RUN npm install && npm run build
+
+FROM nginx:1.21.6-alpine
+
+ENV API_URL api:8080
+ENV LANG='C.UTF-8' LC_ALL='C.UTF-8'
+
+ADD  nginx /etc/nginx/
+COPY --from=builder /app/frontend/dist /var/www/html

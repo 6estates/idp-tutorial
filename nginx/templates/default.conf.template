@@ -1,0 +1,18 @@
+server {
+  listen       80;
+  server_name  idp-tutorial;
+  root   /var/www/html;
+  index  index.html index.htm;
+
+  location / {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+   include  /etc/nginx/nocache.conf;
+  }
+
+  location ~ ^/api {
+    rewrite ^/api/(.*)$ /$1 break;
+    proxy_pass http://${API_URL};
+    proxy_set_header Host ${API_URL};
+  }
+}

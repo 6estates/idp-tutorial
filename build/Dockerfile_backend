@@ -1,0 +1,13 @@
+FROM maven:3.8.4-jdk-11-slim  AS builder
+
+WORKDIR /app/idp-tutorial
+ADD backend . 
+RUN mvn clean package spring-boot:repackage
+
+From openjdk:11.0.15-jre
+
+WORKDIR /app/idp-tutorial
+# copy jar from the builder stage
+COPY --from=builder /app/idp-tutorial/target/backend-1.0-SNAPSHOT.jar ./backend-1.0-SNAPSHOT.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "-Xmx1024M", "-Xms1024M","-XX:+HeapDumpOnOutOfMemoryError", "backend-1.0-SNAPSHOT.jar"]
