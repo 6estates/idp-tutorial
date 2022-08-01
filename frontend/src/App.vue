@@ -136,8 +136,8 @@
               size="medium"
               placeholder="Mode"
             >
-              <el-option value="1" label="Loop" />
-              <el-option value="2" label="Callback" />
+              <el-option value="1" label="No Callback" />
+              <el-option value="2" label="With Callback" />
             </el-select>
           </el-form-item>
   
