@@ -30,6 +30,8 @@ After you successfully start both services, you can open a web browser and enter
 
 Now you shall see that the dashboard looks like the image above and you can start a trial by simply uploading a file.  
 
+This [Youtube Video](https://www.youtube.com/watch?v=h4EGkOXiCBA) is an introduction to this demo project.    
+
 ### 4 Build & Deployment by Docker
 #### 4.1 Deployment from Dockerhub image
 ```
